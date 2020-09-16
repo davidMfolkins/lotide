@@ -14,6 +14,22 @@ const assertArraysEqual = function(array1, array2) {
   }
 };
 
-assertArraysEqual([1, 2, 3], [1, 2, 3]);
-assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]);
-assertArraysEqual(["1", "2", "3"], ["1", "2", 3]);
+const without = function(array, itemsToRemove) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (!itemsToRemove.includes(array[i])) {
+      newArray.push(array[i]);
+    }
+  }
+  console.log(newArray);
+  return newArray;
+};
+
+
+without([1, 2, 3], [1]); // => [2, 3]
+without(["1", "2", "3"], [1, 2, "3"]);
+
+const words = ["hello", "world", "lighthouse"];
+without(words, ["lighthouse"]);
+
+assertArraysEqual(words, ["hello", "world", "lighthouse"]);
