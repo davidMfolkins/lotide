@@ -6,6 +6,7 @@ const eqArrays = function(array1, array2) {
   }
   return true;
 };
+
 const assertArraysEqual = function(array1, array2) {
   if (eqArrays(array1, array2)) {
     return (`✅✅✅ Assertion Passed: ${array1} === ${array2}`);
@@ -20,17 +21,18 @@ const map = function(array, callback) {
   const results = [];
   for (let item of array) {
     results.push(callback(item));
+    console.log(callback(item))
   }
   console.log(results);
   return results;
 };
 
 
-const cb = word => word[0];
+const results1 = (words, word => word[0]);
 
 
 
-console.log(assertArraysEqual(map(words, cb), [ 'g', 'c', 't', 'm', 't' ]));
-console.log(assertArraysEqual(map(words, cb), [ 'g', 'c', 't', 'm' ]));
+console.log(assertArraysEqual(map(words, results1), [ 'g', 'c', 't', 'm', 't' ]));
+console.log(assertArraysEqual(map(words, results1), [ 'g', 'c', 't', 'm' ]));
 
 
